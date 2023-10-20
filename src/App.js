@@ -51,11 +51,11 @@ function App() {
       items: 3
     },
     tablet: {
-      breakpoint: { max: 1200, min: 784 },
+      breakpoint: { max: 1200, min: 855 },
       items: 2
     },
     mobile: {
-      breakpoint: { max: 784, min: 0 },
+      breakpoint: { max: 855, min: 0 },
       items: 1
     }
   };
@@ -70,19 +70,19 @@ function App() {
   // Show More Button at last slide
   const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
     const { carouselState: { currentSlide } } = rest;
-    if(currentSlide === limit-3){
+    if(currentSlide >= limit-3){
       setShowMore(true)
     }
   }
 
   return (
     <>
-    <header className='text-center text-8xl my-4 text-white font-[roboto-slab] underline underline-offset-8 '>
+    <header className='text-center text-8xl my-4 text-white font-[roboto-slab] underline underline-offset-8 max-[1069px]:text-6xl max-[653px]:text-4xl'>
       Dynamic Content Carousel
     </header>
 
     <div className='text-right mr-8'>
-      <label className='text-xl text-white font-[roboto-slab] italic mr-3'>Autoplay</label>
+      <label className='text-xl text-white font-[roboto-slab] italic'>Autoplay</label>
     <Switch onClick={toggle} className='bg-slate-500'/>
     </div>
 
@@ -105,7 +105,7 @@ function App() {
       showMore?
       <div className='text-center relative'>
         <button onClick={handleShowMore}
-        className='bg-slate-500 text-white font-[roboto-slab] text-xl p-2 rounded-md absolute right-12 bottom-2'>Show More...</button>
+        className='showMore bg-slate-500 text-white font-[roboto-slab] text-xl p-2 rounded-md absolute right-12 bottom-[-15px] h-10 flex items-center'>Show More...</button>
       </div>
       :
       null
