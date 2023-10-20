@@ -11,8 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: -webkit-fill-available;
-  background:linear-gradient(rgb(0, 0, 0),rgb(232, 215, 238))
+  height: 100vh;
+  background:linear-gradient(to bottom,rgb(0, 0, 0),rgb(255, 255, 255))
 }
 
 code {

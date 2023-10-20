@@ -8,6 +8,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
 import { Switch } from 'antd';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 library.add(fas, faTwitter, faFontAwesome)
 
@@ -18,6 +20,7 @@ function App() {
   const [items , setItems] = useState([])
   const [limit,setLimit] = useState(10)
   const [showMore , setShowMore] = useState(false)
+  const [error , setError] = useState(false)
 
   // Fetch data whenever the limit changes
   useEffect(() => {
@@ -30,6 +33,10 @@ function App() {
       setItems(res.data.products);
     } catch (error) {
       console.log(error);
+      toast.error("An error occurred ! Please try again.", {
+        theme: "colored"
+      })
+      setError(true)
     }
   };
 
@@ -77,7 +84,7 @@ function App() {
 
   return (
     <>
-    <header className='text-center text-8xl my-4 text-white font-[roboto-slab] underline underline-offset-8 max-[1069px]:text-6xl max-[653px]:text-4xl'>
+    <header className=' heading text-center text-8xl mb-4 pt-4 text-white font-[roboto-slab] underline underline-offset-8 max-[1069px]:text-6xl max-[653px]:text-4xl'>
       Dynamic Content Carousel
     </header>
 
@@ -110,6 +117,23 @@ function App() {
       :
       null
     }
+    {
+      error?<div className='flex h-96 items-center justify-center'>
+
+      </div>:null
+    }
+
+    <ToastContainer 
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+    />
       
     </>
   );

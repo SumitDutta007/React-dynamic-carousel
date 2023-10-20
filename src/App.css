@@ -39,3 +39,22 @@
 .description{
   width: 100% !important;
 }
+.heading{
+  background:linear-gradient(to right , rgb(88, 88, 88),white,rgb(88, 88, 88),white,rgb(88, 88, 88),white,rgb(88, 88, 88),white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 10s infinite ease-in-out;
+  background-size: 300%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
